@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% block header %}
+<header class="container mt-4">
+    <div class="row">
+        <div class="col-10">
+            <h1 class="mt-2"><a href="/">App</a></h1>
+        </div>
+        <div class="col-2">
+            <a href="/login" class="btn btn-primary" role="button">Login</a>
+            <a href="/signup" class="btn btn-primary" role="button">Sign Up</a>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="display-4 mt-5 font-weight-bold">Hello World</h2>
+        </div>
+    </div>
+</div>
+{% endblock content %}

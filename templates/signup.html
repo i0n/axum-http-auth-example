@@ -1,0 +1,45 @@
+{% extends "_base.html" %}
+{% block header %}
+<header class="container mt-4">
+    <div class="row">
+        <div class="col-10">
+            <h1 class="mt-2"><a href="/">App</a></h1>
+            <h3 class="mt-5 mb-3">Sign Up</h3>
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+</header>
+{% endblock header %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+        <div class="signup-form">
+          {% if !errors.is_empty() %}
+          <div class="alert alert-danger">
+            <h4>The following fields have errors:</h4>
+            {% for e in errors.field_errors() -%}
+            <p>{{e.0}}</p>
+            {% endfor -%}
+          </div>
+          {% endif %}
+          <form action="/signup" method="post">
+            <div class="form-group mb-3">
+              <label for="signup_email">Email address</label>
+              <input name= "email" type="email" class="form-control {% if !errors.is_empty() %}{% for e in errors.field_errors() -%}{% if e.0 == "email" %} is-invalid{% endif %}{% endfor -%}{% endif %}" id="signup_email" aria-describedby="emailHelp" placeholder="Enter email" autocomplete=username>
+            </div>
+            <div class="form-group mb-3">
+              <label for="signup_password">Password</label>
+              <input name = "password" type="password" class="form-control {% if !errors.is_empty() %}{% for e in errors.field_errors() -%}{% if e.0 == "password" %} is-invalid{% endif %}{% endfor -%}{% endif %}" id="signup_password" placeholder="Password" autocomplete=current-password>
+            </div>
+            <div class="form-group mb-3">
+              <label for="confirm_signup_password">Confirm Password</label>
+              <input name = "confirm_password" type="password" class="form-control {% if !errors.is_empty() %}{% for e in errors.field_errors() -%}{% if e.0 == "password" %} is-invalid{% endif %}{% endfor -%}{% endif %}" id="confirm_signup_password" placeholder="Password" autocomplete=current-password>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

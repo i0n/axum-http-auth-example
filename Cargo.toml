@@ -1,0 +1,51 @@
+[package]
+name = "axum-http-auth-example"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+
+# Web Framework:
+axum = { version = "0.6.0-rc.5", features = ["http2"] }
+
+# Middleware:
+tower = { version = "0.4.13", features = ["util", "timeout"] }
+tower-http = { version = "0.3.4", features = ["fs", "trace"] }
+
+# Async Runtime:
+tokio = { version = "1.21.2", features = ["full"] }
+tokio-postgres = "0.7.7"
+
+# Database:
+bb8 = "0.8.0"
+bb8-postgres = "0.8.1"
+
+# Sessions:
+#axum-sessions = { path="../axum-sessions" }
+axum-sessions = { git="https://github.com/i0n/axum-sessions", branch = "main" }
+async-redis-session = "0.2.2"
+
+# password hashing:
+rust-argon2 = "1.0"
+
+# Logging:
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Errors:
+thiserror = "1.0.37"
+
+# Environment variables:
+envy = "0.4.2"
+
+# Serialisation/Deserialisation:
+serde = { version = "1.0", features = ["derive"] }
+
+# Templating:
+askama = "0.11.1"
+
+# Validation:
+validator = { version = "0.16", features = ["derive"] }
+
+# Utils
+rand = { version = "0.8.5", features = ["min_const_gen"] }
