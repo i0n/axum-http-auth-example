@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 
 # Web Framework:
-axum = { version = "0.6.0-rc.5", features = ["http2"] }
+axum = { version = "0.6.0", features = ["http2"] }
 
 # Middleware:
 tower = { version = "0.4.13", features = ["util", "timeout"] }
@@ -21,8 +21,7 @@ bb8 = "0.8.0"
 bb8-postgres = "0.8.1"
 
 # Sessions:
-#axum-sessions = { path="../axum-sessions" }
-axum-sessions = { git="https://github.com/i0n/axum-sessions", branch = "main" }
+axum-sessions = { version = "0.4" }
 async-redis-session = "0.2.2"
 
 # password hashing:
